@@ -1,9 +1,14 @@
 $cienRelativo: 100px
 $bold: bold
+$center: center
+$layout-breakpoint-medium: 767px
+$layout-breakpoint-medium-small: 575px
+$layout-breakpoint-medium-medium: 991px
+
 
 .text-bold
   font-weight: $bold
-    
+
 .flex-center
   display: flex
   justify-content: center
@@ -29,10 +34,15 @@ $bold: bold
     left: 2px
     img
      width: 70%
+  
   .card
     width: 86% !important
     background-color: #f8f9fa5c !important
     box-shadow: 10px 10px 21px black
+    .box-text
+      width: 76%
+      margin-left: auto
+      margin-right: auto
     .card-text
       font-weight: bold
       font-size: 136%
@@ -57,11 +67,11 @@ $bold: bold
       border: 1px solid #f7f7f7
       border-radius: 5px
       box-shadow: 2px -1px 25px #8c8c8c    
-
   img
-    max-width: 252px
+    max-width: 4210px
+    max-height: 494px
     width: 100%
-
+  
 
 ngb-rating
   font-size: 50px
@@ -71,3 +81,21 @@ ngb-rating
 
 h6
   color: #ececec !important 
+
+
+@media (max-width: $layout-breakpoint-medium)
+  .fondo
+    height: 120vh
+
+@media (max-width: $layout-breakpoint-medium-small)
+  .fondo
+    height: 130vh
+
+@media (max-width: $layout-breakpoint-medium-small)
+  .fondo
+    height: 150vh
+
+.logo-small
+  text-align: $center
+  img
+    width: 30%

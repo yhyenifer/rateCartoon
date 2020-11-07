@@ -4,12 +4,14 @@
   </div>
   <div class="card" style="width: 18rem;">
     <div class="card-body">
+      <div class="box-text">
       <p class="card-text">¡Genial!, ahora puedes califcar todas las historietas que quieras y escribir que piensas de ellas</p>
+    </div>
       <div class="row card-cartoon">
         <div class="card-text-medio col-md-6 col-12">
-          <h6 class="card-subtitle mb-2 text-muted">2012</h6>
-          <h5 class="card-title">Historieta1</h5>
-          <img src="../../../assets/imagen/1.png">
+          <h6 class="card-subtitle mb-2 text-muted">{{year}}</h6>
+          <h5 class="card-title">{{title}}</h5>
+          <img [src]="img">
         </div>
         <div class="card-text-medio col-md-5 col-12 space-top">
           <div class="row box-rate">
@@ -17,16 +19,14 @@
               <ngb-rating [max]="5" [(rate)]="currentRate" [readonly]="false"></ngb-rating>
             </div>
             <div class="col-md-6 col-12">
-              <button type="button" class="btn btn-warning shad-btn full-relativo text-bold">Calificar</button>
+              <button type="button" class="btn btn-warning shad-btn full-relativo text-bold" (click)="open()" [disabled]="currentRate == 0">Calificar</button>
             </div>
             <div class="col-md-6 col-12">
-              <button type="button" class="btn btn-light shad-btn full-relativo text-bold">Ver otra</button>
+              <button type="button" class="btn btn-light shad-btn full-relativo text-bold" (click)="searchCartoon()">Ver otra</button>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  
-
 </div>
