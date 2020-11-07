@@ -1,0 +1,32 @@
+<div class="fondo flex-center">
+  <div class="logo">
+    <img src="../../../assets/img/logo.png" />
+  </div>
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <p class="card-text">¡Genial!, ahora puedes califcar todas las historietas que quieras y escribir que piensas de ellas</p>
+      <div class="row card-cartoon">
+        <div class="card-text-medio col-md-6 col-12">
+          <h6 class="card-subtitle mb-2 text-muted">2012</h6>
+          <h5 class="card-title">Historieta1</h5>
+          <img src="../../../assets/imagen/1.png">
+        </div>
+        <div class="card-text-medio col-md-5 col-12 space-top">
+          <div class="row box-rate">
+            <div class="col-12">
+              <ngb-rating [max]="5" [(rate)]="currentRate" [readonly]="false"></ngb-rating>
+            </div>
+            <div class="col-md-6 col-12">
+              <button type="button" class="btn btn-warning shad-btn full-relativo text-bold">Calificar</button>
+            </div>
+            <div class="col-md-6 col-12">
+              <button type="button" class="btn btn-light shad-btn full-relativo text-bold">Ver otra</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+</div>
