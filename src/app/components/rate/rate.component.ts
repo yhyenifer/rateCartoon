@@ -1,6 +1,6 @@
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Component, Input, DoCheck, OnInit, OnChanges, ElementRef, ViewChild } from '@angular/core';
-import { CartoonService } from 'src/app/services/cartoons.service';
+import { CartoonService } from '../../services/cartoons.service';
 
 
 @Component({
@@ -31,7 +31,7 @@ export class NgbdModalContent {
   templateUrl: './rate.component.html',
   styleUrls: ['./rate.component.sass']
 })
-export class RateComponent implements OnInit, OnChanges {
+export class RateComponent implements OnInit {
   @ViewChild('send', { static: true }) alert: ElementRef;
   currentRate = 0;
   cartoonInfo: any;
@@ -84,9 +84,6 @@ export class RateComponent implements OnInit, OnChanges {
      this.img = this.cartoonInfo.img;
      
    })
-  }
-  ngOnChanges(changes){
-    console.log(changes);
   }
 
 }
