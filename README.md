@@ -12,7 +12,7 @@ A continuación explicaré las diferentes formas como podemos observar la aplica
 
 ## Servidor de Desarrollo
 
-Ejecutar `ng serve --proxy-config proxy.conf.json` el proxy se debio configurar para poder acceder a los recursos de la API solicitada, ya que este genera un error de CORS, ya que se genera un consumo de recursos de origenes cruzados, el servidor se depliegua localmente en: `http://localhost:4200/`. La aplicación se recargará automáticamente si cambia alguno de los archivos de origen.
+Ejecutar `ng serve --proxy-config proxy.conf.json` el proxy se debió configurar para poder acceder a los recursos de la API solicitada, ya que este genera un error de CORS, ya que se genera un consumo de recursos de origenes cruzados, el servidor se depliega localmente en: `http://localhost:4200/`. La aplicación se recargará automáticamente si cambia alguno de los archivos de origen.
 
 Si usamos esta opción como despliegue es necesario acceder al archivo `cartoon.service.ts` y habilitar la URL comentada que permite el uso del proxy local (linea 35).
 
