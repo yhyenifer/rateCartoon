@@ -18,11 +18,11 @@ Si usamos esta opción como despliegue es necesario acceder al archivo `cartoon.
 
 ## Construcción
 
-Ejecutar `ng build --base-href ./ --prod`, Angular compila todos los archivos en extensiones conocidas por un navegador y las aloja en la carpera `dist/ratecartoon`, con una base-href en ./, luego ejecutamos `npx ngh --dir=dist/rate-cartoon-app/` con el fin de hacer un despligue web dentro de mi repositorio de git usando **GitPages** 
-de esta manera podemos consultar `https://yhyenifer.github.io/ratecartoon` para ver la aplicación en un entorno producctivo
+Ejecutar `ng build --base-href ./ --prod`, Angular compila todos los archivos en extensiones conocidas por un navegador y las aloja en la carpera `dist/ratecartoon`, con una base-href en ./, luego ejecutamos `npx ngh --dir=dist/rate-cartoon-app/` con el fin de hacer un despliegue web dentro de mi repositorio de git usando **GitPages** 
+de esta manera podemos consultar `https://yhyenifer.github.io/ratecartoon` para ver la aplicación en un entorno productivo
 
 **_Nota importante_**
-Nota importante como la **API** que se está consumiendo presenta problemas de restricción de acceso a sus recursos, para que desde gitpage funcione, debemos tener instalada y activa la extensión de Google Chrome llamada _Allow CORS: Access-Control-Allow-Origin_, aquí dejo URL para que la puedan instalar **_https://chrome.google.com/webstore/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf?hl=es_**
+Como la **API** que se está consumiendo presenta problemas de restricción de acceso a sus recursos, para que desde gitpage funcione, debemos tener instalada y activa la extensión de Google Chrome llamada _Allow CORS: Access-Control-Allow-Origin_, aquí dejo URL para que la puedan instalar **_https://chrome.google.com/webstore/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf?hl=es_**
 
 ### Otra forma de desplega rel proyecto
 
