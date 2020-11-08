@@ -227,7 +227,10 @@ class RateComponent {
      */
     ngOnInit() {
         this.hoy = moment__WEBPACK_IMPORTED_MODULE_1__().format('DD/MM/YYYY');
-        this.searchCartoon();
+        this.searchCurrentCartoon();
+        setTimeout(() => {
+            this.searchCartoon();
+        }, 2000);
     }
     /**
      * @function open()
