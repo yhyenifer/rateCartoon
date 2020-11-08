@@ -24,6 +24,6 @@ de esta manera podemos consultar `https://yhyenifer.github.io/ratecartoon` para 
 **_Nota importante_**
 Como la **API** que se está consumiendo presenta problemas de restricción de acceso a sus recursos, para que desde gitpage funcione, debemos tener instalada y activa la extensión de Google Chrome llamada _Allow CORS: Access-Control-Allow-Origin_, aquí dejo URL para que la puedan instalar **_https://chrome.google.com/webstore/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf?hl=es_**
 
-### Otra forma de desplega rel proyecto
+### Otra forma de desplegar rel proyecto
 
-Pueden acceder a la carpeta `dist/rate-cartoon-app` mediante consola e instalar `npm install -g static-server` (se debe contar con **nodejs** instalado), y luego ejecutamos `static-server`, esto nos proporciona una URL local donde estará la app desplegada (se debe activar la extención anteriormente mencionada).
+Pueden acceder a la carpeta `dist/rate-cartoon-app` mediante consola e instalar `npm install -g static-server` (se debe contar con **nodejs** instalado), y luego ejecutamos `static-server`, esto nos proporciona una URL local donde estará la app desplegada (se debe activar la extensión anteriormente mencionada).
