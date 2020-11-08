@@ -17,9 +17,16 @@ export interface Cartoon {
 @Injectable()
 export class CartoonService{
   public url: string;
+  urlBase: string;
 
 
-  constructor(private http: HttpClient){ }
+  constructor(private http: HttpClient){ 
+    // url para uso productivo
+    this.urlBase = 'https://xkcd.com';
+    // url para uso de proxy local
+    //this.urlBase = 'api';
+ 
+  }
 /**
  * @function searchCartoons()
  * @description funcion para lanzar la peticion de consulta de historitas
@@ -29,10 +36,13 @@ export class CartoonService{
  */ 
   searchCartoons(number):Observable<Cartoon[]>{
   
-    // url para uso productivo
-    this.url = `https://xkcd.com/${number}/info.0.json`;
-    // url para uso de proxy local
-    this.url = `api/${number}/info.0.json`;
+    this.url = this.urlBase+`/${number}/info.0.json`;
+    return this.http.get<Cartoon[]>(this.url);
+  }
+
+  searchCartoonsCurrent():Observable<Cartoon[]>{
+  
+    this.url = this.urlBase+`/info.0.json`;
     return this.http.get<Cartoon[]>(this.url);
   }
 
