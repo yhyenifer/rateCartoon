@@ -2,7 +2,7 @@
 
 Este proyecto es generado con  [Angular CLI](https://github.com/angular/angular-cli) version 10.2.0, emplando SASS y empaquetando la aplicación mediante webpack.
 
-A continuación explicare las diferentes formas como podemos observar la aplicación desarrollada, tanto desde un entorno local como uno productivo (GitPages)
+A continuación explicaré las diferentes formas como podemos observar la aplicación desarrollada, tanto desde un entorno local como uno productivo (GitPages)
 
 ### Tabla de contenido
  * [Servidor de desarrollo](#Servidor%20de%20Desarrollo)
