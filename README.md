@@ -1,6 +1,6 @@
 # RateCartoonApp
 
-Este proyecto es generado con  [Angular CLI](https://github.com/angular/angular-cli) version 10.2.0, emplando SASS y empaquetando la aplicación mediante webpack.
+Este proyecto es generado con  [Angular CLI](https://github.com/angular/angular-cli) version 10.2.0, empleando SASS y empaquetando la aplicación mediante webpack.
 
 A continuación explicaré las diferentes formas como podemos observar la aplicación desarrollada, tanto desde un entorno local como uno productivo (GitPages)
 
