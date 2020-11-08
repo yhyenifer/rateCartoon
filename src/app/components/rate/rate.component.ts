@@ -124,6 +124,7 @@ export class RateComponent implements OnInit {
     //llamado al servicio
     this.cartoonService.searchCartoons(number)
       .subscribe(data => {
+        console.log(data);
         this.cartoonInfo = data;
         this.idCartoon = this.cartoonInfo.num;
         this.year = this.cartoonInfo.year;

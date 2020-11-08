@@ -28,15 +28,11 @@ export class CartoonService{
  * @date 08/11/2020
  */ 
   searchCartoons(number):Observable<Cartoon[]>{
-    const httpOptions = {
-      headers: new HttpHeaders({ 
-        'Access-Control-Allow-Origin':'*',
-        'Authorization':'authkey',
-        'userid':'1'
-      })};
+    // url para uso de proxy local
     //this.url = `api/${number}/info.0.json`;
+    // url para uso productivo
     this.url = `https://xkcd.com/${number}/info.0.json`;
-    return this.http.get<Cartoon[]>(this.url, httpOptions);
+    return this.http.get<Cartoon[]>(this.url);
   }
 
 }
