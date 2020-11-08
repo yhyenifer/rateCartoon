@@ -16,7 +16,10 @@ export class CartoonService{
   }
 
   searchCartoons(number):Observable<Cartoon[]>{
-    this.url = `api/${number}/info.0.json`;
+    //this.url = `api/${number}/info.0.json`;
+    this.url = `https://xkcd.com/${number}/info.0.json`;
+    
+    
     return this._http.get<Cartoon[]>(this.url);
   }
 
