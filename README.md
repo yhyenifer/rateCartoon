@@ -1,27 +1,30 @@
 # RateCartoonApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.2.0.
+Este proyecto es generado con  [Angular CLI](https://github.com/angular/angular-cli) version 10.2.0.
 
-## Development server
+A contiinuacion explicare las diferentes formas como podemos observar la aplicación desarrollada, tanto desde un entorno local como uno productivo (GitPages)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+### Tabla de contenido
+ * [Servidor de desarrollo](#Servidor%20de%20Desarrollo)
+ * [Construcción y Despliegue ](#Construcción)
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+## Servidor de Desarrollo
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Ejecutar `ng serve --proxy-config proxy.conf.json` el proxy se debio configurar para poder acceder a los recursos de la API solicitada, ya que este genera un error de CORS, ya que se genera un consumo de recursos de origenes cruzados, el servidor se depliegua localmente en: `http://localhost:4200/`. La aplicación se recargará automáticamente si cambia alguno de los archivos de origen.
 
-## Running unit tests
+Si usamos esta opción como despliegue es necesario acceder al archivo `cartoon.service.ts` y habilitar la URL comentada que permite el uso del proxy local (linea 35).
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Construcción
 
-## Running end-to-end tests
+Ejecutar `ng deploy` el cual esta configurado para la construcción de esta aplicación en mi repositorio de git, cuando ejecutamos esto, Angular compila todos los archivos en extenciones conocidas por un navegador y las aloja en la carpera `dist/ratecartoon`
+luego ejecutamos `npx ngh --dir=dist/rate-cartoon-app/` con el fin de hacer un despligue web dentro de mi repositorio de git usando **GitPages** 
+de esta manera podemos consultar `https://yhyenifer.github.io/ratecartoon` para ver la aplicación en un entorno producctivo
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+**_Nota importante_**
+Nota importante como la **API** que se está consumiendo presenta problemas de restricción de acceso a sus recursos, para que desde gitpage funcione, debemos tener instalada y activa la extención de Google Chrome llamada _Allow CORS: Access-Control-Allow-Origin_, aquí dejo URL para que la puedan instalar **_https://chrome.google.com/webstore/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf?hl=es_**
 
-## Further help
+### Otra forma de desplega rel proyecto
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Pueden acceder a la carpeta `dist/rate-cartoon-app` mediante consola e instalar `npm install -g static-server` (se debe contar con **nodejs** instalado), y luego ejecutamos `static-server`, esto nos proporciona una URL local donde estará la app desplegada (se debe activar la extención anteriormente mencionada).
