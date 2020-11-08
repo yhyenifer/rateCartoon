@@ -1,6 +1,6 @@
 # RateCartoonApp
 
-Este proyecto es generado con  [Angular CLI](https://github.com/angular/angular-cli) version 10.2.0.
+Este proyecto es generado con  [Angular CLI](https://github.com/angular/angular-cli) version 10.2.0, emplando SASS y empaquetando la aplicación mediante webpack.
 
 A continuación explicare las diferentes formas como podemos observar la aplicación desarrollada, tanto desde un entorno local como uno productivo (GitPages)
 
@@ -18,8 +18,7 @@ Si usamos esta opción como despliegue es necesario acceder al archivo `cartoon.
 
 ## Construcción
 
-Ejecutar `ng deploy` el cual esta configurado para la construcción de esta aplicación en mi repositorio de git, cuando ejecutamos esto, Angular compila todos los archivos en extenciones conocidas por un navegador y las aloja en la carpera `dist/ratecartoon`
-luego ejecutamos `npx ngh --dir=dist/rate-cartoon-app/` con el fin de hacer un despligue web dentro de mi repositorio de git usando **GitPages** 
+Ejecutar `ng build --base-href ./ --prod`, Angular compila todos los archivos en extenciones conocidas por un navegador y las aloja en la carpera `dist/ratecartoon`, con una base-href en ./, luego ejecutamos `npx ngh --dir=dist/rate-cartoon-app/` con el fin de hacer un despligue web dentro de mi repositorio de git usando **GitPages** 
 de esta manera podemos consultar `https://yhyenifer.github.io/ratecartoon` para ver la aplicación en un entorno producctivo
 
 **_Nota importante_**

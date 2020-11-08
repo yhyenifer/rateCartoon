@@ -1,6 +1,7 @@
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Component, Input, DoCheck, OnInit, OnChanges, ElementRef, ViewChild } from '@angular/core';
 import { CartoonService } from '../../services/cartoons.service';
+import * as moment from 'moment';
 
 /**
 * @component NgbdModalContent
@@ -56,6 +57,9 @@ export class RateComponent implements OnInit {
   comentario: string;
   objRate: { rate: number; comment: any; id: any };
   idCartoon: any;
+  hoy: string;
+  resul: any;
+  number: number;
 
   constructor(private modalService: NgbModal,
     public cartoonService: CartoonService) { }
@@ -66,7 +70,8 @@ export class RateComponent implements OnInit {
  * @date 08/11/2020
  */   
   ngOnInit() {
-    this.searchCartoon();
+    this.hoy = moment().format('DD/MM/YYYY');
+    this.searchCurrentCartoon();
   }
 /**
  * @function open()
@@ -96,7 +101,7 @@ export class RateComponent implements OnInit {
         console.table(this.objRate);
         this.currentRate = 0;
         // cargar una nueva cartoon
-        this.searchCartoon();
+        this.searchCurrentCartoon();
 
       }
 
@@ -120,11 +125,10 @@ export class RateComponent implements OnInit {
  */
   searchCartoon() {
     this.currentRate = 0;
-    let number = this.random(2382);
+    let number = this.random(this.number);
     //llamado al servicio
     this.cartoonService.searchCartoons(number)
       .subscribe(data => {
-        console.log(data);
         this.cartoonInfo = data;
         this.idCartoon = this.cartoonInfo.num;
         this.year = this.cartoonInfo.year;
@@ -132,6 +136,43 @@ export class RateComponent implements OnInit {
         this.img = this.cartoonInfo.img;
 
       })
+  }
+/**
+ * @function searchCurrentCartoon()
+ * @description funcion que permite consultar el ultimo numero de historieta publicado
+ * @returns numero maximo de historietas
+ * @author Yenifer Hernandez
+ * @date 08/11/2020
+ */
+  searchCurrentCartoon(){
+    // si no hay limite se consulta
+    if(sessionStorage.getItem('limit') == null){
+        this.cartoonService.searchCartoonsCurrent()
+        .subscribe(data=>{
+          this.resul = data;
+          sessionStorage.setItem('limit', this.resul.num);
+          sessionStorage.setItem('fecha', this.hoy);
+          this.number =parseInt(this.resul.num);
+          this.searchCartoon();
+        })
+    }else{
+      // se hay limite pero la fecha en que se guardo es igual a la de hoy, se consulta localmente el limite
+      if(this.hoy == sessionStorage.getItem('fecha')){
+        this.number = parseInt(sessionStorage.getItem('limit'));
+        this.searchCartoon();
+      }else{
+      // se hay limite pero la fecha en que se guardo es diferente a la de hoy, se consulta 
+        this.cartoonService.searchCartoonsCurrent()
+        .subscribe(data=>{
+          this.resul = data;
+          sessionStorage.setItem('limit', this.resul.num);
+          sessionStorage.setItem('fecha', this.hoy);
+          this.number =  parseInt(this.resul.num);
+          this.searchCartoon();
+        })
+      }
+    }
+   
   }
 
 }
