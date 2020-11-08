@@ -16,9 +16,7 @@ export class CartoonService{
   }
 
   searchCartoons(number):Observable<Cartoon[]>{
-    console.log(number);
     this.url = `api/${number}/info.0.json`;
-    //let headers = new HttpHeaders({'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Credentials': 'true' });
     return this._http.get<Cartoon[]>(this.url);
   }
 

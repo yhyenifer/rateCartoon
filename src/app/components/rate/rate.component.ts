@@ -1,35 +1,28 @@
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { Component, Input, DoCheck, OnInit } from '@angular/core';
+import { Component, Input, DoCheck, OnInit, OnChanges, ElementRef, ViewChild } from '@angular/core';
 import { CartoonService } from 'src/app/services/cartoons.service';
 
 
 @Component({
   selector: 'ngbd-modal-content',
-  template: `
-    <div class="modal-header">
-      <div class="logo-small">
-      <img src="../../../assets/img/logo.png" />
-     </div>
-      <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div class="modal-body">
-      <p>La calificación que has otorgado es de <strong>{{currentRate}}</strong> estrellas</p>
-      <label for="exampleFormControlTextarea1">Cuéntanos si quieres porque diste esta calificación</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-      </div>
-    <div class="modal-footer">
-    <button type="button" class="btn btn-success" (click)="activeModal.close('Close click')">Enviar</button>
-      <button type="button" class="btn btn-outline-danger" (click)="activeModal.close('Close click')">Cerrar</button>
-    </div>
-  `,
-  styleUrls: ['./rate.component.sass']
+  templateUrl: './modal.component.html',
+  styleUrls: ['./rate.component.sass'],
 })
 export class NgbdModalContent {
   @Input() currentRate = '';
+  comentario: any;
 
-  constructor(public activeModal: NgbActiveModal) { }
+
+  constructor(public activeModal: NgbActiveModal) {
+
+   }
+
+   enviarDatos(){
+     this.comentario = document.getElementById('comment');
+     console.log(this.comentario.value);
+     
+    this.activeModal.close(['Enviar',this.comentario.value])
+   }
 }
 
 
@@ -38,12 +31,15 @@ export class NgbdModalContent {
   templateUrl: './rate.component.html',
   styleUrls: ['./rate.component.sass']
 })
-export class RateComponent implements OnInit {
+export class RateComponent implements OnInit, OnChanges {
+  @ViewChild('send', { static: true }) alert: ElementRef;
   currentRate = 0;
   cartoonInfo: any;
   year: any;
   title: any;
   img: any;
+  comentario : string;
+  objRate: { rate: number; comment: any; };
   constructor(private modalService: NgbModal,
     public cartoonService : CartoonService) { }
   ngOnInit() {
@@ -52,6 +48,25 @@ export class RateComponent implements OnInit {
   open() {
     const modalRef = this.modalService.open(NgbdModalContent);
     modalRef.componentInstance.currentRate = this.currentRate;
+    modalRef.closed.subscribe(result =>{
+      if(result[0]=='Enviar'){
+        console.log(this.alert.nativeElement);
+        this.alert.nativeElement.classList.add('show');
+        setTimeout(() => {
+          this.alert.nativeElement.classList.remove('show');
+        }, 3000);
+        this.objRate = {
+          rate: this.currentRate,
+          comment: result[1]
+        }
+        console.log('Guardar en Persistencia');
+        console.table(this.objRate);
+        this.currentRate = 0;
+        this.searchCartoon();
+        
+      }
+     
+    })
   }
 
   random(){
@@ -59,6 +74,7 @@ export class RateComponent implements OnInit {
   }
 
   searchCartoon(){
+    this.currentRate = 0;
     let number = this.random();
    this.cartoonService.searchCartoons(number)
    .subscribe( data =>{
@@ -68,6 +84,9 @@ export class RateComponent implements OnInit {
      this.img = this.cartoonInfo.img;
      
    })
+  }
+  ngOnChanges(changes){
+    console.log(changes);
   }
 
 }

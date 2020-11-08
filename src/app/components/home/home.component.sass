@@ -1,13 +1,12 @@
-$layout-breakpoint-medium: 767px
-$layout-breakpoint-medium-medium: 991px
-$layout-breakpoint-medium-small: 576px
-$layout-breakpoint-small: 575px
+
+
+@import ../../app.component
 
 .fondo
   width: 100%
   height: 100vh
-  background-image: url('../../../assets/img/fondo.png')
-  background-position: center
+  background-image: $urlFondo
+  background-position: $center
 
   .items-group
     width: 100%
@@ -44,7 +43,7 @@ $layout-breakpoint-small: 575px
         
         
         .block
-          box-shadow: 0px 0px 50px #333
+          box-shadow: 0px 0px 50px $gray
         
       
 
@@ -64,7 +63,7 @@ $layout-breakpoint-small: 575px
         position: absolute
         transform: scale(1.03)
         background-size: cover
-        background-position: center
+        background-position: $center
         background-attachment: fixed
       
       
@@ -79,7 +78,7 @@ $layout-breakpoint-small: 575px
         position: absolute
         transform: scale(1.03)
         background-size: cover
-        background-position: center
+        background-position: $center
         background-attachment: fixed
       
 
@@ -87,9 +86,8 @@ $layout-breakpoint-small: 575px
         width: 100%
         height: 100%
         padding: 20px
-        color: #ffffff
+        color: $white
         box-shadow: 0.5s
-        //transition:box-shadow 0.5s
         max-width: 300px
         overflow: hidden
         max-height: 450px
@@ -97,7 +95,7 @@ $layout-breakpoint-small: 575px
         transform: scale(1.03)
         box-sizing: border-box
         background-size: cover
-        background-position: center
+        background-position: $center
         background-attachment: fixed
         box-shadow: none
         
@@ -112,22 +110,22 @@ $layout-breakpoint-small: 575px
           transition: 0.5s
           position: absolute
           border-radius: 10px
-          background: radial-gradient(circle at 80px 40px, #fff, transparent)
+          background: radial-gradient(circle at 80px 40px, $white, transparent)
         
         
         .text
           width: 100%
           height: 100%
           display: flex
-          text-align: center
+          text-align: $center
           flex-direction: column
-          justify-content: center
-          background-position: center
+          justify-content: $center
+          background-position: $center
           background-attachment: fixed
         
         
         h2
-          font-family: 'Oswald', sans-serif
+          font-family: $font-family
           font-size: 80px
           margin-bottom: 0px
           width: 0 
@@ -135,22 +133,22 @@ $layout-breakpoint-small: 575px
         
         
         p
-          font-family: 'Open Sans', sans-serif
-          font-size: 17px
+          font-family: $font-family-secundary
+          font-size: $size-font-paragraph
         
         
         &:hover
-          box-shadow: 0px 0px 70px #111
+          box-shadow: 0px 0px 70px $black
           
           .circleLight
             opacity: 0.4
         
     button
-      font-family: "Open Sans", sans-serif
-      font-size: 21px
-      font-weight: bold
-      color: white
-      box-shadow: 4px 5px 4px #00000040
+      font-family: $font-family-secundary
+      font-size: $size-font-button
+      font-weight: $bold
+      color: $white
+      box-shadow: 4px 5px 4px $tranparent
           
   
 
