@@ -5,10 +5,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
-import { RateComponent } from './components/rate/rate.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { CartoonService } from './services/cartoons.service';
+import { RateComponent } from './components/rate/rate.component';
 
 
 @NgModule({
@@ -25,7 +26,9 @@ import { CartoonService } from './services/cartoons.service';
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [CartoonService],
+  providers: [CartoonService,
+    { provide: LocationStrategy, useClass: HashLocationStrategy }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
